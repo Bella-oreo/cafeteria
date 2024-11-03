@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon"type="image.logo" href="images/Logotipo de restaurante cozinha retrô design _ Vetor Premium.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Cafeteria</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* White background for clean look */
+            color: #333; /* Dark text for readability */
+        }
+
+        /* Header styling */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color:black; /* Gold Brown */
+            color: #fff;
+            position: relative;
+        }
+        .header img {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .header h1 {
+            margin-top: 20px;
+            font-size: 36px;
+            color: whitesmoke; /* Gold text */
+        }
+        .header p {
+            font-size: 18px;
+        }
+
+        /* Chef's recipes section */
+        .recipes-section {
+            padding: 40px 20px;
+            background-color: #f5f5f5;
+        }
+        .recipes-section h2 {
+            text-align: center;
+            color: #8B5B29; /* Gold brown title */
+            margin-bottom: 20px;
+        }
+        .recipe-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .recipe-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            background-color: #fff;
+            color: gray;
+        }
+        .recipe-card h3 {
+            color: #8B5B29;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .recipe-card p {
+            font-size: 14px;
+            color: #555;
+        }
+        .image-container{
+  width: 260px; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+}
+
+        /* Student reviews section */
+        .reviews-section {
+            padding: 40px 20px;
+            background-color: bisque; /* Light gold background */
+            color: #333;
+        }
+        .reviews-section h2 {
+            text-align: center;
+            color: #8B5B29;
+            margin-bottom: 20px;
+        }
+        .review {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .review h3 {
+            color: #8B5B29;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .review p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* News section */
+       
+        /* Basic reset */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    .news-section {
+            padding: 40px 20px;
+            background-color: bisque; /* Light gold background */
+            color: #333;
+        }
+        .news-section h2 {
+            text-align: center;
+            color: #8B5B29;
+            margin-bottom: 20px;
+        }
+    /* Main container */
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f8f8f8;
+    }
+
+    /* Card styling */
+    .card {
+        background-color: #fff;
+        width: 22%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+        text-align: center;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Card image */
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    /* Card content */
+    .card-content {
+        padding: 15px;
+    }
+
+    .card h3 {
+        color: #FFD700; /* Gold color */
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 0.9em;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 900px) {
+        .card {
+            width: 45%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .card {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Header section with image and introduction -->
+
+
+<div id="abouthero">
+    <div id="aboutheader">
+        <ul id="aboutnavbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Menu</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="">Cart</a></li>
+            <li><a class="active" href="blogsnews.html">Blogs & News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </div>
+</div>
+
+
+
+    <div id="hero_content">
+        <div>
+            <img src="images/OIP.jpeg" alt="Riara University Cafeteria">
+            <h1>Welcome to Riara University Cafeteria Blog & News</h1>
+            <p>Explore our latest recipes, meal plans, and reviews from our vibrant community.</p>
+            <a href="">Menu</a>
+        </div>
+
+    </div>
+
+<!-- Chef's Recipes Section -->
+<section class="recipes-section">
+    <h2>Chef's Special Recipes</h2>
+    <div class="recipe-cards">
+        <!-- Recipe Card Example -->
+        <div class="recipe-card">
+            <img class="image-container" src="images/OIP (1).jpeg" alt="">
+            <h3>First Course: Fresh Garden Salad</h3>
+            <p>Enjoy a nutritious start with our garden salad, packed with vitamins A, C, and fiber.</p>
+        </div>
+        <div class="recipe-card">
+            <img class="image-container" src="images/OIP (2).jpeg" alt="">
+            <h3>Main Course: Grilled Chicken with Veggies</h3>
+            <p>Protein-rich grilled chicken with a side of fiber-packed veggies for a balanced meal.</p>
+        </div>
+        <div class="recipe-card">
+            <img class="image-container" src="images/th (2).jpeg" alt="">
+            <h3>Dessert: Fruit Parfait</h3>
+            <p>End on a sweet note with our fruit parfait, full of antioxidants and natural sweetness.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Student Reviews Section -->
+<section class="reviews-section">
+    <h2>Student Reviews</h2>
+    <div class="review">
+        <h3>John, 3rd Year Student</h3>
+        <p>"The Riara University cafeteria is a mixed bag. While the food is generally decent and offers a variety
+             of options, the service can be quite slow, especially during peak hours. The dining area can also get
+              quite crowded, making it difficult to find a quiet spot to eat. However, the staff is friendly and 
+              always willing to help.</p>
+    </div>
+    <div class="review">
+        <h3>Sarah, 2nd Year Student</h3>
+        <p>"I've had both positive and negative experiences at the Riara cafeteria. The food is sometimes
+             fresh and tasty, but other times it can be bland or overcooked. The prices are reasonable,
+              but the portions can be small. The ambiance is okay, but the noise level can be high,
+               especially during lunchtime."</p>
+    </div>
+    <div class="review">
+        <h3>Jesse, 2nd Year Student</h3>
+        <p>"The Riara cafeteria is a great place to grab a quick bite to eat between classes.
+             The food is consistently good, and the staff is friendly and efficient.
+              The prices are reasonable, and the portions are generous. The only downside 
+              is that the cafeteria can get quite crowded during peak hours"</p>
+    </div>
+</section>
+
+<!-- News and Upcoming Meal Plans Section -->
+<section class="news-section">
+    <h2>News & Upcoming Meal Plans</h2>
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="images/med.jpeg" alt="Mediterranean Delight">
+            <div class="card-content">
+                <h3>Mediterranean Delight</h3>
+                <p>Experience the fresh and vibrant flavors of the Mediterranean with dishes rich in olive oil, herbs, and colorful vegetables.</p>
+            </div>
+        </div>
+    
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="images/sea.jpeg" alt="New Seasonal Dishes">
+            <div class="card-content">
+                <h3>New Seasonal Dishes</h3>
+                <p>Celebrate the season with our new lineup of dishes, featuring locally-sourced ingredients and heartwarming flavors.</p>
+            </div>
+        </div>
+    
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="images/download (3).jpeg" alt="Low-Carb Week">
+            <div class="card-content">
+                <h3>Low-Carb Week</h3>
+                <p>Enjoy delicious, low-carb meal options crafted to help you stay energized while maintaining a balanced diet.</p>
+            </div>
+        </div>
+    
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="images/chef.jpeg" alt="Chef's Special">
+            <div class="card-content">
+                <h3>Chef's Special</h3>
+                <p>This week’s Chef’s Special includes a selection of gourmet dishes designed for a refined dining experience.</p>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+
+<footer class="section-p1">
+    <div class="footer-content">
+      <div class="col">
+        <img class="logo" src="images/Logotipo de restaurante cozinha retrô design _ Vetor Premium.jpg" alt="Riara Cafe">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> Riara University, Raila Odinga Way Opp Highrise Estate, Nairobi.</p>
+        <p><strong>Phone:</strong> +254 703038000 / (+254) 720 999 818</p>
+        <p><strong>Hours:</strong> 8:00am - 5:00pm, Mon-Sat</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col">
+        <h4>About</h4>
+        <a href="">About Us</a>
+        <a href="">Delivery Information</a>
+        <a href="">Privacy Policy</a>
+        <a href="">Terms & Conditions</a>
+        <a href="">Contact Us</a>
+      </div>
+  
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="">Sign In</a>
+        <a href="">View Cart</a>
+        <a href="">My Wishlist</a>
+        <a href="">Track My Orders</a>
+        <a href="">Help</a>
+      </div>
+  
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="images/appstore.jpeg" alt="App Store">
+          <img src="images/googleplay.jpeg" alt="Google Play">
+        </div>
+        <p>Secure Payment Gateways</p>
+        <img src="images/payment.jpeg" alt="Payment Methods">
+      </div>
+    </div>
+  
+    <div class="copyright">
+      <p>@copyright | Riara University Cafeteria</p>
+    </div>
+  </footer>
+
+</body>
+</html>

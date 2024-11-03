@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon"type="image.logo" href="images/Logotipo de restaurante cozinha retrô design _ Vetor Premium.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Cafeteria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+        h2 {
+        font-size: 2em;
+        color: #555;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        animation: fadeIn 1.5s ease-out;
+        
+    }
+
+        nav {
+            background-color: rgba(16, 7, 0, 0.8); /* Dark brown, transparent */
+            color: white;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        /* Header styling */
+        .header {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        /* Full-width header image */
+        .header img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Header title styling */
+        .header h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        /* About section styling */
+        .about-section {
+            background-color: rgba(210, 180, 140, 0.9); /* Light brown with opacity */
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: -80px auto 20px auto; /* Adjusts to overlap header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        section {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 80px 0; /* Increase the bottom margin */
+    background-color: #D2B48C;
+}
+.fade-in-section {
+    opacity: 0; /* Start as invisible */
+    transform: translateY(20px); /* Slightly shift down */
+    transition: opacity 1s ease, transform 2s ease; /* Animate both opacity and position */
+}
+
+.fade-in-section.visible {
+    opacity: 1; /* Make visible */
+    transform: translateY(0); /* Shift back to original position */
+}
+ /* Basic reset */
+ * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Container styling */
+    .chef-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    /* Card styling */
+    .chef-card {
+        background-color: #fff;
+        width: 250px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s forwards;
+    }
+
+    /* Card Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Adding delay to each chef card */
+    .chef-card:nth-child(1) { animation-delay: 0s; }
+    .chef-card:nth-child(2) { animation-delay: 2s; }
+    .chef-card:nth-child(3) { animation-delay: 4s; }
+    .chef-card:nth-child(4) { animation-delay: 6s; }
+    .chef-card:nth-child(5) { animation-delay: 8s; }
+
+    /* Chef image */
+    .chef-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Card content */
+    .chef-content {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .chef-name {
+        font-size: 1.2em;
+        color: #FFD700; /* Gold color */
+        margin-bottom: 5px;
+    }
+
+    .chef-description {
+        font-size: 0.9em;
+        color: #555;
+        line-height: 1.4;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 768px) {
+        .chef-card {
+            width: 90%;
+        }
+    }
+          
+.footer {
+    background-color: #8B5B29; /* Gold Brown */
+    color: #fff; /* White text for contrast */
+    padding: 20px;
+    text-align: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <div id="abouthero">
+        <div id="aboutheader">
+            <ul id="aboutnavbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a class="active" href="About.html">About</a></li>
+                <li><a href="">Cart</a></li>
+                <li><a href="blogsnews.html">Blogs & News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+    
+            <div id="mobile">
+                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <img src="images/pexels-photo-958545.jpeg.jpg" alt="Header Image">
+        <h1>About Us</h1>
+    </header>
+    
+    <section class="about-section">
+        <p>
+            Welcome to the Riara University Cafeteria, where flavor meets innovation in a vibrant campus
+            setting! Here, we take pride in offering a diverse menu that caters to every taste,
+            from wholesome meals to exciting snack options. Our talented chefs craft each dish with fresh,
+            high-quality ingredients to ensure every bite is packed with flavor and nutrition.
+            The cafeteria is more than a place to eat – it’s a hub of energy where students,
+            faculty, and staff can relax, connect, and recharge in a lively atmosphere. 
+            Whether you’re grabbing a quick coffee between classes or enjoying a full meal 
+            with friends, the Riara University Cafeteria is your go-to destination for nourishment, 
+            comfort, and campus pride. Come hungry, leave inspired!
+        </p>
+    </section>
+    
+    <section class="fade-in-section">
+        <h2>Our Mission</h2>
+        <p>At Riara Cafeteria, we’re not just dishing out food—we’re serving up a whole experience with a side of sass! Our mission?
+             To fuel your brain and tantalize your taste buds with mouthwatering meals that make you say, ‘Yes, please!’ We believe 
+             that every bite should be a flavor explosion, which is why we source the freshest local ingredients and whip up dishes 
+             that are as exciting as your latest playlist.From vibrant salads and hearty mains to indulgent desserts,
+              our rotating menu keeps things fresh and fun—just like you!
+
+            We’re all about creating a vibe that makes lunchtime the highlight of your day.
+             So whether you’re grabbing a quick bite between classes or chilling with friends over a hearty meal,
+              we’ve got something to satisfy every craving. Come on down, grab a plate, and let’s make lunchtime
+               not just a meal but a celebration. Because here at Riara, eating should be as fun as learning—and
+                we’re ready to prove it!</p>
+    </section>
+
+    <section class="fade-in-section">
+        <h2>Our Commitment</h2>
+        <p>At Riara Cafeteria, our commitment goes beyond just serving meals; it’s about creating a joyful 
+            and uplifting dining experience that brightens your day! We believe that every student deserves
+            access to delicious, nutritious food that not only satisfies cravings but also fuels creativity and learning.
+            That’s why we pour our hearts into crafting a menu filled with vibrant flavors and wholesome ingredients, 
+            ensuring every dish is a celebration of taste and health. From fresh salads bursting with color to hearty 
+            comfort foods that warm your soul, we are dedicated to making each meal a delightful adventure. We also embrace
+            the idea of variety, constantly innovating to bring you exciting new options that keep your taste buds on their toes!
+            Our friendly staff is here to serve you with smiles, making sure that your time at the cafeteria feels like a
+            mini getaway amid your busy school day. So come hungry, leave happy, and let us show you just how much we care
+            through the power of great food!</p>
+    </section>
+    <section>
+        <h2>Meet our Chefs</h2>
+        <div class="chef-container">
+            <!-- Chef 1 -->
+            <div class="chef-card">
+                <img src="images/carla.jpeg" alt="Chef Carla Rodes">
+                <div class="chef-content">
+                    <h3 class="chef-name">Chef Carla Rodes</h3>
+                    <p class="chef-description">Specializes in French cuisine with a modern twist, creating unforgettable dining experiences.</p>
+                </div>
+            </div>
+        
+            <!-- Chef 2 -->
+            <div class="chef-card">
+                <img src="images/seb.jpeg" alt="Chef Sebastian Oduor">
+                <div class="chef-content">
+                    <h3 class="chef-name">Chef Sebastian Oduor</h3>
+                    <p class="chef-description">Renowned for her Mediterranean dishes, Chef Sebastian brings passion and flavor to every plate.</p>
+                </div>
+            </div>
+        
+            <!-- Chef 3 -->
+            <div class="chef-card">
+                <img src="images/ian.jpg" alt="Chef Ian Mburu">
+                <div class="chef-content">
+                    <h3 class="chef-name">Chef Ian Mburu</h3>
+                    <p class="chef-description">A master of Asian fusion, Chef Ian combines traditional techniques with innovative ingredients.</p>
+                </div>
+            </div>
+        
+            <!-- Chef 4 -->
+            <div class="chef-card">
+                <img src="images/maria.jpeg" alt="Chef  Maria Lavender">
+                <div class="chef-content">
+                    <h3 class="chef-name">Chef  Maria Lavender</h3>
+                    <p class="chef-description">An expert in pastry and dessert art, Chef Maria creates stunning sweets that taste as good as they look.</p>
+                </div>
+            </div>
+    </section>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+        
+            const options = {
+                root: null, // Use the viewport as the root
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+        
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Add the visible class
+                        observer.unobserve(entry.target); // Stop observing the section once it's visible
+                    }
+                });
+            }, options);
+        
+            sections.forEach(section => {
+                observer.observe(section); // Start observing each section
+            });
+        });
+        </script>
+        <footer class="section-p1">
+            <div class="footer-content">
+              <div class="col">
+                <img class="logo" src="images/Logotipo de restaurante cozinha retrô design _ Vetor Premium.jpg" alt="Riara Cafe">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Riara University, Raila Odinga Way Opp Highrise Estate, Nairobi.</p>
+                <p><strong>Phone:</strong> +254 703038000 / (+254) 720 999 818</p>
+                <p><strong>Hours:</strong> 8:00am - 5:00pm, Mon-Sat</p>
+                <div class="follow">
+                  <h4>Follow us</h4>
+                  <div class="icon">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="col">
+                <h4>About</h4>
+                <a href="">About Us</a>
+                <a href="">Delivery Information</a>
+                <a href="">Privacy Policy</a>
+                <a href="">Terms & Conditions</a>
+                <a href="">Contact Us</a>
+              </div>
+          
+              <div class="col">
+                <h4>My Account</h4>
+                <a href="">Sign In</a>
+                <a href="">View Cart</a>
+                <a href="">My Wishlist</a>
+                <a href="">Track My Orders</a>
+                <a href="">Help</a>
+              </div>
+          
+              <div class="col install">
+                <h4>Install App</h4>
+                <p>From App Store or Google Play</p>
+                <div class="row">
+                  <img src="images/appstore.jpeg" alt="App Store">
+                  <img src="images/googleplay.jpeg" alt="Google Play">
+                </div>
+                <p>Secure Payment Gateways</p>
+                <img src="images/payment.jpeg" alt="Payment Methods">
+              </div>
+            </div>
+          
+            <div class="copyright">
+              <p>@copyright | Riara University Cafeteria</p>
+            </div>
+          </footer>
+    </body>
+</html>
