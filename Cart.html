@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riara Cafe - Cart/Checkout</title>
+    <link rel="stylesheet" href="CartStyles.css">
+    <script src="Cart.js" defer></script>
+</head>
+<body>
+
+<div class="checkout-container">
+    <h1>RIARA CAFE</h1>
+    <h2>My Cart</h2>
+    <div class="cart-items">
+        <div class="cart-item">
+            <span class="item-name">Sample Item</span>
+            <span class="item-price">KSH 0</span>
+            <input type="number" class="item-quantity" value="1" min="1">
+            <button class="remove-item">Remove</button>
+        </div>
+    </div>
+
+    <div class="checkout-summary">
+        <h2>Order Summary</h2>
+        <div class="summary-item">
+            <span>Subtotal</span>
+            <span id="subtotal">KSH 0</span>
+        </div>
+        
+        <div class="summary-item total">
+            <span>Total</span>
+            <span id="total">KSH 0</span>
+        </div>
+        <button class="checkout-button">Proceed to Checkout</button>
+    </div>
+</div>
+
+</body>
+</html>

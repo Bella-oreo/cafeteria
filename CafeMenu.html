@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riara Cafe Menu</title>
+  <link rel="stylesheet" href="MenuStyles.css">
+  <script src="MenuScript.js" defer></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>RIARA CAFE MENU</h1>
+      <p>Welcome to the taste of Riara!</p>
+    </div>
+  </header>
+
+  <!-- Navigation for Menu Filters -->
+  <nav class="menu-nav">
+    <button onclick="filterMenu('all')">All</button>
+    <button onclick="filterMenu('breakfast')">Breakfast</button>
+    <button onclick="filterMenu('lunch')">Lunch</button>
+    <button onclick="filterMenu('drinks')">Drinks</button>
+    <button onclick="filterMenu('dessert')">Dessert</button>
+  </nav>
+
+  <!-- Menu Section -->
+  <section class="menu" id="menu">
+    <div class="menu-item breakfast">
+      <img src="Images/pancakes.jpg" alt="Breakfast Pancakes">
+      <h2>Breakfast Pancakes</h2>
+      <p><i>Fluffy buttermilk pancakes topped with butter, maple syrup, and a choice of fruits or nuts.</i></p>
+      <div class="rating">
+        ★★★★★
+      </div>
+      <span class="price">KSH 350</span>
+      <button class="add-to-cart">🛒 Add to Cart</button>
+    </div>
+
+    <div class="menu-item breakfast">
+        <img src="Images/western omelette.jpg" alt="Western Omelette">
+        <h2>Western Omelette</h2>
+        <p><i>Three-egg omelette with ham, cheese and bell peppers. Served with buttered toast of choice and a salsa dip.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 200</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item breakfast">
+        <img src="Images/french toast.jpg" alt="French Toast">
+        <h2>French Toast</h2>
+        <p><i>Fresh brioche bread, egg-dipped, and dusted in powdered sugar. Topped with butter, maple syrup, and berries of choice.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 250</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item breakfast">
+        <img src="Images/breakfast burrito.jpg" alt="Breakfast Burrito">
+        <h2>Breakfast Burrito</h2>
+        <p><i>Scrambled eggs, cheese, and a choice of sausage or bacon in a tortilla wrap. Served with a spicy salsa dip.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 400</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/pasta.jpg" alt="Sunburst Tomato Pasta">
+        <h2>Sunburst Tomato Pasta</h2>
+        <p><i>A cheesy tomato pasta delight, featuring al dente penne in a rich, tangy tomato sauce with melted mozzarella and fresh basil.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 300</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/buffalo wings.jpg" alt="Buffalo Chicken Wings">
+        <h2>Buffalo Chicken Wings</h2>
+        <p><i>Crispy chicken wings tossed in spicy buffalo sauce, served with a side of celery sticks and a cooling ranch dip.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 500</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images\bacon cheeseburger.jpg" alt="Bacon Cheeseburger">
+        <h2>Bacon Cheeseburger</h2>
+        <p><i>Juicy beef patty topped with crispy bacon, cheddar cheese, lettuce, tomato, and special sauce, all on a toasted brioche bun. Setved with a side of fries.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 400</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/pesto grilled cheese sandwich.jpg" alt="BLT Grilled Cheese Sandwich">
+        <h2>BLT Grilled Cheese Sandwich</h2>
+        <p><i>Classic grilled cheese with a twist, layered with crispy bacon, fresh lettuce, and sliced tomato on golden-brown sourdough bread. Served with a side of fries.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 350</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/chicken caesar salad.jpg" alt="Grilled Chicken Caesar Salad">
+        <h2>Grilled Chicken Caesar Salad</h2>
+        <p><i>Crisp romaine lettuce, grilled chicken breast, parmesan cheese, croutons, and a Caesar dressing.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 300</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/meatlovers pizza.jpg" alt="Meatlovers Pizza">
+        <h2>Meatlovers Pizza</h2>
+        <p><i>Loaded with pepperoni, sausage, bacon, and mozzarella over a rich tomato sauce.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 600</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/beef biryani.jpg" alt="Beef Biryani">
+        <h2>Beef Biryani</h2>
+        <p><i>Aromatic basmati rice with tender beef, infused with spices and served with yogurt raita.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 250</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item lunch">
+        <img src="Images/chicken shawarma.jpg" alt="Chicken Shawarma">
+        <h2>Chicken Shawarma</h2>
+        <p><i>Marinated grilled chicken with fresh veggies, wrapped in pita and drizzled with garlic sauce.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 300</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/fruit juice.jpg" alt="Fruit Juice">
+        <h2>Fruit Juice</h2>
+        <p><i>Fresh cold-pressed fruit juice.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 70</span>
+
+        <select id="JuiceType">
+          <option value="Orange">Orange</option>
+          <option value="Mango">Mango</option>
+          <option value="Passion">Passion</option>
+          <option value="Pineapple Mint">Pineapple Mint</option>
+        </select>
+
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/sodas.jpg" alt="Soda">
+        <h2>Soda</h2>
+        <p><i>Crisp and bubbly soda, perfect for a refreshing pick-me-up.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 70</span>
+
+        <select id="SodaType">
+          <option value="Coca-cola">Coca-cola</option>
+          <option value="Fanta">Fanta</option>
+          <option value="Sprite">Sprite</option>
+        </select>
+
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/berry blast smoothie.jpg" alt="Berry Blast Smoothie">
+        <h2>Berry Blast Smoothie</h2>
+        <p><i>A vibrant smoothie blend of strawberries, blueberries, and raspberries.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 200</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/fizzy lemonade.jpg" alt="Fizzy Lemonade">
+        <h2>Fizzy Lemonade</h2>
+        <p><i>Zesty, refreshing lemonade with a hint of mint.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 150</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/teas.png" alt="Tea">
+        <h2>Tea</h2>
+        <p><i>Perfectly brewed tea made to your liking. Black, mixed, green, and herbal varieties available.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 50</span>
+
+        <select id="TeaType">
+          <option value="Black">Black</option>
+          <option value="Mixed">Mixed</option>
+          <option value="Green">Green</option>
+          <option value="Herbal">Herbal</option>
+        </select>
+
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/hot chocolate.jpg" alt="Hot Chocolate">
+        <h2>Hot Chocolate</h2>
+        <p><i>Warm, velvety hot chocolate topped with fluffy whipped cream for a touch of indulgence.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 70</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/cappuccino.jpg" alt="Cappuccino">
+        <h2>Cappuccino</h2>
+        <p><i>Rich espresso topped with steamed milk and a thick layer of frothy foam.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 100</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item drinks">
+        <img src="Images/cafe latte.jpeg" alt="Cafe Latte">
+        <h2>Cafe Latte</h2>
+        <p><i>Creamy espresso combined with steamed milk, finished with a light layer of foam.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 100</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item dessert">
+        <img src="Images/glazed doughnuts.jpg" alt="Glazed Doughnut">
+        <h2>Glazed Doughnut</h2>
+        <p><i>Soft, fluffy doughnut coated in a smooth, sweet glaze. A classic treat perfect for any time of day.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 80</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item dessert">
+        <img src="Images/Strawberry cheesecake.jpg" alt="Strawberry Cheesecake">
+        <h2>Strawberry Cheesecake</h2>
+        <p><i>Creamy cheesecake layered with a fresh strawberry topping and a buttery graham cracker crust.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 170</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item dessert">
+        <img src="Images/ice cream sundae.jpg" alt="Ice Cream Sundae">
+        <h2>Ice Cream Sundae</h2>
+        <p><i>Two scoops of vanilla ice cream topped with rich chocolate sauce, whipped cream, and a cherry on top.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 200</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+
+      <div class="menu-item dessert">
+        <img src="Images/fudge brownie.jpg" alt="Fudge Brownie">
+        <h2>Fudge Brownie</h2>
+        <p><i>Decadent chocolate brownie with a dense, fudgy texture and a rich cocoa flavour.</i></p>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <span class="price">KSH 100</span>
+        <button class="add-to-cart">🛒 Add to Cart</button>
+      </div>
+  </section>
+
+</body>
+</html>
