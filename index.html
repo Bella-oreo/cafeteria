@@ -102,7 +102,7 @@
                 </div>
                 <h4>300 KSH</h4>
             </div>
-            <a href="#"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <a href="Cart.html"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 
         </div>
 
@@ -120,7 +120,7 @@
                 </div>
                 <h4>500 KSH</h4>
             </div>
-            <a href="#"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <button class="add-to-cart" onclick="addToCart('product-id', 'Product Name', 1)">🛒 Add to Cart</button>
 
         </div>
 
@@ -138,7 +138,7 @@
                 </div>
                 <h4>400 KSH</h4>
             </div>
-            <a href="#"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <button class="add-to-cart" onclick="addToCart('product-id', 'Product Name', 1)">🛒 Add to Cart</button>
 
         </div>
 
@@ -156,10 +156,34 @@
                 </div>
                 <h4>350 KSH</h4>
             </div>
-            <a href="#"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <button class="add-to-cart" onclick="addToCart('product-id', 'Product Name', 1)">🛒 Add to Cart</button>
 
         </div>
+<script>
+  // Function to add an item to the cart
+function addToCart(productId, productName, quantity) {
+    // Retrieve existing cart from local storage or create a new one
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+    // Check if product is already in the cart
+    const existingProduct = cart.find(item => item.id === productId);
+
+    if (existingProduct) {
+        // Increase the quantity if product is already in the cart
+        existingProduct.quantity += quantity;
+    } else {
+        // Add new product to the cart
+        cart.push({ id: productId, name: productName, quantity: quantity });
+    }
+
+    // Save updated cart back to local storage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Redirect to the cart page
+    window.location.href = 'cart.html';
+}
+
+</script>
     </div>
 </section>
 

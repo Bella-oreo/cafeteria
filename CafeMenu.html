@@ -8,7 +8,155 @@
   <script src="MenuScript.js" defer></script>
 </head>
 <style>
-  
+ /* Modal overlay for the cart */
+.cart-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  backdrop-filter: blur(5px); /* Adds a blur effect to the background */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+}
+
+/* Smooth animation for the modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.cart-container {
+  width: 90%;
+  max-width: 450px;
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+  position: relative;
+  transform: translateY(-20px);
+  animation: slideDown 0.3s ease-out; /* Slide down animation */
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+}
+
+/* Close button with styling */
+.close-cart {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease-in;
+}
+
+.close-cart:hover {
+  color: #333;
+}
+
+.cart-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.cart-item-name {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.cart-item-price {
+  font-size: 1.1em;
+  color: #777;
+}
+
+.remove-item {
+  background-color: #ff5e57;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.remove-item:hover {
+  background-color: #ff3a2e;
+}
+
+.cart-total {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 15px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #0a07a5;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.checkout-btn:hover {
+  background-color: #1c0a7a;
+}
+/* Add to Cart Button Styling */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient from peach to orange */
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slight scale-up on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.98); /* Slightly smaller scale when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow on click */
+}
+
+
 </style>
 <body>
 <!-- Fonts -->
@@ -44,7 +192,9 @@
         ★★★★★
       </div>
       <span class="price">KSH 350</span>
-      <button class="add-to-cart">🛒 Add to Cart</button>
+      <!-- Add to Cart Button -->
+      <button class="add-to-cart-btn" onclick="addItemFromMenu('Breakfast Pancakes', 350.00)"> 🛒Add to Cart</button>
+
     </div>
 
     <div class="menu-item breakfast">
@@ -55,7 +205,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 200</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Western Omelette', 200.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item breakfast">
@@ -66,7 +216,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 250</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('French Toast', 250.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item breakfast">
@@ -77,7 +227,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 400</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Breakfast Burrito', 400.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -88,7 +238,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 300</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Sunburst Tomato Pasta', 300.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -99,7 +249,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 500</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Buffalo Chicken Wings', 500.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -110,7 +260,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 400</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Bacon Cheeseburger', 400.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -121,7 +271,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 350</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('BLT Grilled Cheese Sandwich', 350.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -132,7 +282,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 300</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Grilled Chicken Caesar Salad', 300.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -143,7 +293,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 600</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Meatlovers Pizza', 600.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -154,7 +304,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 250</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Beef Biryani', 250.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item lunch">
@@ -165,7 +315,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 300</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Chicken Shawarma', 300.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -184,7 +334,7 @@
           <option value="Pineapple Mint">Pineapple Mint</option>
         </select>
 
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Fruit Juice', 70.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -202,7 +352,7 @@
           <option value="Sprite">Sprite</option>
         </select>
 
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Soda', 70.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -213,7 +363,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 200</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Berry Blast Smoothie', 200.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -224,7 +374,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 150</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Fizzy Lemonade', 150.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -243,7 +393,7 @@
           <option value="Herbal">Herbal</option>
         </select>
 
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Tea', 50.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -254,7 +404,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 70</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Hot Chocolate', 70.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -265,7 +415,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 100</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Cappuccino', 100.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item drinks">
@@ -276,7 +426,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 100</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Cafe Latte', 100.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item dessert">
@@ -287,7 +437,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 80</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Glazed Doughnut', 80.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item dessert">
@@ -298,7 +448,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 170</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Strawberry Cheesecake', 170.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item dessert">
@@ -309,7 +459,7 @@
           ★★★★★
         </div>
         <span class="price">KSH 200</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Ice Cream Sundae', 200.00)"> 🛒Add to Cart</button>
       </div>
 
       <div class="menu-item dessert">
@@ -320,9 +470,124 @@
           ★★★★★
         </div>
         <span class="price">KSH 100</span>
-        <button class="add-to-cart">🛒 Add to Cart</button>
+        <button class="add-to-cart-btn" onclick="addItemFromMenu('Fudge Brownie', 100.00)"> 🛒Add to Cart</button>
       </div>
+      <!-- Modal overlay for the shopping cart -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-container">
+        <button class="close-cart" onclick="closeCart()">✖</button>
+        <h1 class="cart-title">Your Shopping Cart</h1>
+        <div class="cart-items">
+          <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-total">
+          <h2>Total: $<span id="total-amount">0.00</span></h2>
+          <button class="checkout-btn">Proceed to Checkout</button>
   </section>
-
+<script>// Products array for the menu and slideshow
+  const products = [
+    { name: "Product 1", price: 19.99, image: "product1.jpg" },
+    { name: "Product 2", price: 29.99, image: "product2.jpg" },
+    { name: "Product 3", price: 39.99, image: "product3.jpg" },
+    { name: "Product 4", price: 49.99, image: "product4.jpg" }
+  ];
+  
+  let cart = [];
+  let totalAmount = 0;
+  let currentIndex = 0;
+  let autoSlideInterval;
+  
+  // Function to show products in the slideshow
+  function showProduct(index) {
+    const productSlide = document.getElementById("product-slide");
+    const product = products[index];
+    productSlide.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <h3>${product.name}</h3>
+      <p>Price: $${product.price.toFixed(2)}</p>
+      <button onclick="addItem('${product.name}', ${product.price})">Add to Cart</button>
+    `;
+  }
+  
+  // Function for showing next and previous products
+  function showPrevious() {
+    currentIndex = (currentIndex - 1 + products.length) % products.length;
+    showProduct(currentIndex);
+    resetAutoSlide();
+  }
+  
+  function showNext() {
+    currentIndex = (currentIndex + 1) % products.length;
+    showProduct(currentIndex);
+    resetAutoSlide();
+  }
+  
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(showNext, 5000); // Slide every 5 seconds
+  }
+  
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+  
+  // Function to add item to cart without opening modal (for slideshow)
+  function addItem(name, price) {
+    cart.push({ name, price });
+    updateCart();
+  }
+  
+  // Function to add item to cart and open modal (for menu page)
+  function addItemFromMenu(name, price) {
+    cart.push({ name, price });
+    updateCart();
+    openCart(); // Opens the cart modal when adding items from menu page
+  }
+  
+  // Function to remove item from cart
+  function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+  
+  // Function to update cart content and total
+  function updateCart() {
+    const cartItemsContainer = document.querySelector(".cart-items");
+    const totalElement = document.getElementById("total-amount");
+    
+    cartItemsContainer.innerHTML = "";
+    totalAmount = 0;
+  
+    cart.forEach((item, index) => {
+      const cartItem = document.createElement("div");
+      cartItem.classList.add("cart-item");
+  
+      cartItem.innerHTML = `
+        <span class="cart-item-name">${item.name}</span>
+        <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+        <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+      `;
+  
+      cartItemsContainer.appendChild(cartItem);
+      totalAmount += item.price;
+    });
+  
+    totalElement.textContent = totalAmount.toFixed(2);
+  }
+  
+  // Function to open the cart modal
+  function openCart() {
+    document.getElementById("cartModal").style.display = "flex";
+  }
+  
+  // Function to close the cart modal
+  function closeCart() {
+    document.getElementById("cartModal").style.display = "none";
+  }
+  
+  // Initialize slideshow with the first product and start auto-sliding
+  showProduct(currentIndex);
+  startAutoSlide();
+  </script>
 </body>
 </html>
