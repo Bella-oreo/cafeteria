@@ -435,6 +435,32 @@ transform: translateY(0); /* Shift back to original position */
 .feedback-form button:hover {
     background-color: #8B5B29;
 }
+/* Add to Cart Button Styling */
+.add-to-cart-btn {
+    background: linear-gradient(135deg, #3e09b9, #5c48ab); /* Gradient from peach to orange */
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .add-to-cart-btn:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f); /* Reverse gradient on hover */
+    transform: scale(1.05); /* Slight scale-up on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+  }
+  
+  .add-to-cart-btn:active {
+    transform: scale(0.98); /* Slightly smaller scale when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduces shadow on click */
+  }
+  
+  
 
 /* Contact details and social media */
 .contact-details {

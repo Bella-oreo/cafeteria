@@ -102,8 +102,7 @@
                 </div>
                 <h4>300 KSH</h4>
             </div>
-            <a href="Cart.html"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-
+            <button class="add-to-cart-btn" onclick="addItemFromMenu('Beef Noodles', 300.00)"> 🛒Add to Cart</button>
         </div>
 
         <div class="pro">
@@ -120,7 +119,7 @@
                 </div>
                 <h4>500 KSH</h4>
             </div>
-            <button class="add-to-cart" onclick="addToCart('product-id', 'Product Name', 1)">🛒 Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addItemFromMenu('Buffalo Wings', 500.00)"> 🛒Add to Cart</button>
 
         </div>
 
@@ -138,7 +137,7 @@
                 </div>
                 <h4>400 KSH</h4>
             </div>
-            <button class="add-to-cart" onclick="addToCart('product-id', 'Product Name', 1)">🛒 Add to Cart</button>
+            <button class="add-to-cart-btn" onclick="addItemFromMenu('Bacon Cheese Burger', 400.00)"> 🛒Add to Cart</button>
 
         </div>
 
@@ -156,34 +155,113 @@
                 </div>
                 <h4>350 KSH</h4>
             </div>
-            <button class="add-to-cart" onclick="addToCart('product-id', 'Product Name', 1)">🛒 Add to Cart</button>
-
+            <button class="add-to-cart-btn" onclick="addItemFromMenu('Grilled Cheese Sandwich', 350.00)"> 🛒Add to Cart</button>
         </div>
-<script>
-  // Function to add an item to the cart
-function addToCart(productId, productName, quantity) {
-    // Retrieve existing cart from local storage or create a new one
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Check if product is already in the cart
-    const existingProduct = cart.find(item => item.id === productId);
-
-    if (existingProduct) {
-        // Increase the quantity if product is already in the cart
-        existingProduct.quantity += quantity;
-    } else {
-        // Add new product to the cart
-        cart.push({ id: productId, name: productName, quantity: quantity });
-    }
-
-    // Save updated cart back to local storage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Redirect to the cart page
-    window.location.href = 'cart.html';
-}
-
-</script>
+        <script>// Products array for the menu and slideshow
+          const products = [
+            { name: "Product 1", price: 19.99, image: "product1.jpg" },
+            { name: "Product 2", price: 29.99, image: "product2.jpg" },
+            { name: "Product 3", price: 39.99, image: "product3.jpg" },
+            { name: "Product 4", price: 49.99, image: "product4.jpg" }
+          ];
+          
+          let cart = [];
+          let totalAmount = 0;
+          let currentIndex = 0;
+          let autoSlideInterval;
+          
+          // Function to show products in the slideshow
+          function showProduct(index) {
+            const productSlide = document.getElementById("product-slide");
+            const product = products[index];
+            productSlide.innerHTML = `
+              <img src="${product.image}" alt="${product.name}">
+              <h3>${product.name}</h3>
+              <p>Price: $${product.price.toFixed(2)}</p>
+              <button onclick="addItem('${product.name}', ${product.price})">Add to Cart</button>
+            `;
+          }
+          
+          // Function for showing next and previous products
+          function showPrevious() {
+            currentIndex = (currentIndex - 1 + products.length) % products.length;
+            showProduct(currentIndex);
+            resetAutoSlide();
+          }
+          
+          function showNext() {
+            currentIndex = (currentIndex + 1) % products.length;
+            showProduct(currentIndex);
+            resetAutoSlide();
+          }
+          
+          function startAutoSlide() {
+            autoSlideInterval = setInterval(showNext, 5000); // Slide every 5 seconds
+          }
+          
+          function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+          }
+          
+          // Function to add item to cart without opening modal (for slideshow)
+          function addItem(name, price) {
+            cart.push({ name, price });
+            updateCart();
+          }
+          
+          // Function to add item to cart and open modal (for menu page)
+          function addItemFromMenu(name, price) {
+            cart.push({ name, price });
+            updateCart();
+            openCart(); // Opens the cart modal when adding items from menu page
+          }
+          
+          // Function to remove item from cart
+          function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+          }
+          
+          // Function to update cart content and total
+          function updateCart() {
+            const cartItemsContainer = document.querySelector(".cart-items");
+            const totalElement = document.getElementById("total-amount");
+            
+            cartItemsContainer.innerHTML = "";
+            totalAmount = 0;
+          
+            cart.forEach((item, index) => {
+              const cartItem = document.createElement("div");
+              cartItem.classList.add("cart-item");
+          
+              cartItem.innerHTML = `
+                <span class="cart-item-name">${item.name}</span>
+                <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+                <button class="remove-item" onclick="removeItem(${index})">Remove</button>
+              `;
+          
+              cartItemsContainer.appendChild(cartItem);
+              totalAmount += item.price;
+            });
+          
+            totalElement.textContent = totalAmount.toFixed(2);
+          }
+          
+          // Function to open the cart modal
+          function openCart() {
+            document.getElementById("cartModal").style.display = "flex";
+          }
+          
+          // Function to close the cart modal
+          function closeCart() {
+            document.getElementById("cartModal").style.display = "none";
+          }
+          
+          // Initialize slideshow with the first product and start auto-sliding
+          showProduct(currentIndex);
+          startAutoSlide();
+          </script>
     </div>
 </section>
 
@@ -236,6 +314,7 @@ function addToCart(productId, productName, quantity) {
         <img src="images/payment.jpeg" alt="Payment Methods">
       </div>
     </div>
+    
   
     <div class="copyright">
       <p>@copyright | Riara University Cafeteria</p>
