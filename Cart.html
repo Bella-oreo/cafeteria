@@ -270,7 +270,7 @@ body {
         <!-- Cart items will be dynamically added here -->
       </div>
       <div class="cart-total">
-        <h2>Total: $<span id="total-amount">0.00</span></h2>
+        <h2>Total: KSH<span id="total-amount">0.00</span></h2>
         <button class="checkout-btn">Proceed to Checkout</button>
       </div>
     </div>
@@ -299,7 +299,7 @@ function showProduct(index) {
   productSlide.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
     <h3>${product.name}</h3>
-    <p>Price: $${product.price.toFixed(2)}</p>
+    <p>Price: KSH${product.price.toFixed(2)}</p>
     <button onclick="addItem('${product.name}', ${product.price})">Add to Cart</button>
   `;
 }
@@ -348,7 +348,7 @@ function updateCart() {
 
     cartItem.innerHTML = `
       <span class="cart-item-name">${item.name}</span>
-      <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+      <span class="cart-item-price">KSH${item.price.toFixed(2)}</span>
       <button class="remove-item" onclick="removeItem(${index})">Remove</button>
     `;
 
