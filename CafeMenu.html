@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riara Cafe Menu</title>
   <link rel="stylesheet" href="MenuStyles.css">
+  <link rel="stylesheet" href="style.css">
   <script src="MenuScript.js" defer></script>
 </head>
 <style>
@@ -166,8 +167,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Header Section -->
-  <header class="hero">
-    <ul id="navbar">
+  <div id="hero">
+    <div id="header">
+  <ul id="navbar">
       <li><a  href="index.html">Home</a></li>
       <li><a class="active" href="CafeMenu.html">Menu</a></li>
       <li><a href="About.html">About</a></li>
@@ -175,12 +177,12 @@
       <li><a href="blogsnews.html">Blogs & News</a></li>
       <li><a href="contact.html">Contact</a></li>
   </ul>
-    <div class="overlay"></div>
     <div class="hero-content">
       <h1>RIARA CAFE MENU</h1>
       <p>Welcome to the taste of Riara!</p>
     </div>
-  </header>
+    </div>
+  </div>
 
   <!-- Navigation for Menu Filters -->
   <nav class="menu-nav">
@@ -490,7 +492,7 @@
           <!-- Cart items will be dynamically added here -->
         </div>
         <div class="cart-total">
-          <h2>Total: $<span id="total-amount">0.00</span></h2>
+          <h2>Total: KSH<span id="total-amount">0.00</span></h2>
           <button class="checkout-btn">Proceed to Checkout</button>
   </section>
 <script>// Products array for the menu and slideshow
@@ -573,7 +575,7 @@
   
       cartItem.innerHTML = `
         <span class="cart-item-name">${item.name}</span>
-        <span class="cart-item-price">$${item.price.toFixed(2)}</span>
+        <span class="cart-item-price">KSH${item.price.toFixed(2)}</span>
         <button class="remove-item" onclick="removeItem(${index})">Remove</button>
       `;
   
