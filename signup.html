@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riara University Cafeteria Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #fefefe, #e8d6c3);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #7a5c4f;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #7a5c4f;
+            outline: none;
+        }
+
+        .form-group .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .signup-btn {
+            background: #7a5c4f;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #5e4639;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Riara University Cafeteria Signup</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Student Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="admission">Admission Number</label>
+                <input type="text" id="admission" name="admission" required>
+                <div class="error" id="admissionError">Identification does not exist. Admission number must be 11 digits.</div>
+            </div>
+            <div class="form-group">
+                <label for="school">School</label>
+                <select id="school" name="school" required>
+                    <option value="" disabled selected>Select your school</option>
+                    <option>Law School</option>
+                    <option>School of Computing Science</option>
+                    <option>School of Business</option>
+                    <option>School of International Relations</option>
+                    <option>School of Journalism</option>
+                    <option>School of Education</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment Method</label>
+                <select id="payment" name="payment" required>
+                    <option value="" disabled selected>Select payment method</option>
+                    <option>Credit Card</option>
+                    <option>Mpesa</option>
+                    <option>Cash</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+                <div class="error" id="phoneError">Phone number must be exactly 10 digits.</div>
+            </div>
+            <div class="form-group">
+                <label for="email">School Email</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError">Invalid email. Use @riarauniversity.ac.ke.</div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {}
+            e.preventDefault();
+
+            const admission = document.getElementById('admission').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            let valid = true;
+
+            // Admission validation
+            if (!/^\d{11}$/.test(admission)) {
+                document.getElementById('admissionError').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('admissionError').style.display = 'none';
+            }
+
+            // Phone number validation
+            if (!/^\d{10}$/.test(phone)) {
+                document.getElementById('phoneError').style.display = 'block';
+                valid = false;
+            } else)
