@@ -32,7 +32,11 @@
             <li><a href="blogsnews.html">Blogs & News</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </div>
         <div id="mobile">
             <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
@@ -157,111 +161,15 @@
             </div>
             <button class="add-to-cart-btn" onclick="addItemFromMenu('Grilled Cheese Sandwich', 350.00)"> 🛒Add to Cart</button>
         </div>
-        <script>// Products array for the menu and slideshow
-          const products = [
-            { name: "Product 1", price: 19.99, image: "product1.jpg" },
-            { name: "Product 2", price: 29.99, image: "product2.jpg" },
-            { name: "Product 3", price: 39.99, image: "product3.jpg" },
-            { name: "Product 4", price: 49.99, image: "product4.jpg" }
-          ];
-          
-          let cart = [];
-          let totalAmount = 0;
-          let currentIndex = 0;
-          let autoSlideInterval;
-          
-          // Function to show products in the slideshow
-          function showProduct(index) {
-            const productSlide = document.getElementById("product-slide");
-            const product = products[index];
-            productSlide.innerHTML = `
-              <img src="${product.image}" alt="${product.name}">
-              <h3>${product.name}</h3>
-              <p>Price: $${product.price.toFixed(2)}</p>
-              <button onclick="addItem('${product.name}', ${product.price})">Add to Cart</button>
-            `;
-          }
-          
-          // Function for showing next and previous products
-          function showPrevious() {
-            currentIndex = (currentIndex - 1 + products.length) % products.length;
-            showProduct(currentIndex);
-            resetAutoSlide();
-          }
-          
-          function showNext() {
-            currentIndex = (currentIndex + 1) % products.length;
-            showProduct(currentIndex);
-            resetAutoSlide();
-          }
-          
-          function startAutoSlide() {
-            autoSlideInterval = setInterval(showNext, 5000); // Slide every 5 seconds
-          }
-          
-          function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-          }
-          
-          // Function to add item to cart without opening modal (for slideshow)
-          function addItem(name, price) {
-            cart.push({ name, price });
-            updateCart();
-          }
-          
-          // Function to add item to cart and open modal (for menu page)
-          function addItemFromMenu(name, price) {
-            cart.push({ name, price });
-            updateCart();
-            openCart(); // Opens the cart modal when adding items from menu page
-          }
-          
-          // Function to remove item from cart
-          function removeItem(index) {
-            cart.splice(index, 1);
-            updateCart();
-          }
-          
-          // Function to update cart content and total
-          function updateCart() {
-            const cartItemsContainer = document.querySelector(".cart-items");
-            const totalElement = document.getElementById("total-amount");
-            
-            cartItemsContainer.innerHTML = "";
-            totalAmount = 0;
-          
-            cart.forEach((item, index) => {
-              const cartItem = document.createElement("div");
-              cartItem.classList.add("cart-item");
-          
-              cartItem.innerHTML = `
-                <span class="cart-item-name">${item.name}</span>
-                <span class="cart-item-price">$${item.price.toFixed(2)}</span>
-                <button class="remove-item" onclick="removeItem(${index})">Remove</button>
-              `;
-          
-              cartItemsContainer.appendChild(cartItem);
-              totalAmount += item.price;
-            });
-          
-            totalElement.textContent = totalAmount.toFixed(2);
-          }
-          
-          // Function to open the cart modal
-          function openCart() {
-            document.getElementById("cartModal").style.display = "flex";
-          }
-          
-          // Function to close the cart modal
-          function closeCart() {
-            document.getElementById("cartModal").style.display = "none";
-          }
-          
-          // Initialize slideshow with the first product and start auto-sliding
-          showProduct(currentIndex);
-          startAutoSlide();
-          </script>
+       <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Toggle the active class
+});
+       </script>
+
     </div>
 </section>
 

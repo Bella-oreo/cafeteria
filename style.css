@@ -113,7 +113,81 @@ body {
     color: goldenrod;
 }
 
+/* Mobile menu */
+#mobile {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
 
+#mobile a, #mobile i {
+    color: white;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+/* Mobile bar styling */
+#bar {
+    cursor: pointer;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        display: none; /* Initially hidden for mobile */
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        text-align: center;
+    }
+
+    #navbar li {
+        margin: 10px 0;
+    }
+
+    #mobile {
+        display: flex; /* Visible in mobile view */
+    }
+
+    #bar.open + #navbar {
+        display: flex;
+    }
+}
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none; /* Hide by default */
+    flex-direction: column; /* Stack bars vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.menu-toggle .bar {
+    height: 3px; /* Bar height */
+    width: 25px; /* Bar width */
+    background-color: white; /* Bar color */
+    margin: 3px 0; /* Space between bars */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column; /* Stack links vertically */
+        width: 100%; /* Full width */
+        background-color: #333; /* Match navbar background */
+        position: absolute; /* Positioning */
+        top: 60px; /* Below the navbar */
+        left: 0; /* Align to left */
+        z-index: 1; /* Ensure it appears above other content */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show toggle button */
+    }}
 #mobile {
     display: flex; 
     align-items: center; 
